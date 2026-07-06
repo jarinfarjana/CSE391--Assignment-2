@@ -1,0 +1,447 @@
+/* ===================================================================
+   JFJ Lab — shared stylesheet
+   Design tokens: soft paper background, deep ink text, pine-teal
+   accent for interactive states, mustard for the JFJ signature mark.
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --bg: #FDE9D9;
+  --surface: #FFFFFF;
+  --ink: #20262B;
+  --ink-soft: #5B6570;
+  --accent: #2F6F62;       /* pine teal — links, active states */
+  --accent-soft: #E7F0EC;  /* pale teal wash */
+  --gold: #C98A2C;         /* JFJ signature mark, used sparingly */
+  --border: #DEE3DF;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(32,38,43,0.04), 0 6px 20px rgba(32,38,43,0.05);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3 { font-family: 'Fraunces', serif; margin: 0; }
+
+a { color: inherit; }
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  background: rgba(247,246,242,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  opacity: 0.55;
+}
+
+.brand-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-name span {
+  color: var(--ink-soft);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.78rem;
+  display: block;
+  letter-spacing: 0.02em;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav.site-nav a:hover { background: var(--accent-soft); color: var(--ink); }
+
+nav.site-nav a.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ---------- Main layout ---------- */
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.page-lede {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  max-width: 52ch;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer strong { color: var(--ink); }
+
+/* ===================================================================
+   Fortune generator
+   =================================================================== */
+
+.fortune-wrap {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.fortune-box {
+  flex: 1;
+  max-width: 480px;
+  min-width: 260px;
+  background: var(--surface);
+  border: 8px solid #2F1B0C;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.75rem;
+  text-align: center;
+  position: relative;
+  transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+.fortune-box::before {
+  content: "❁";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 0.5rem;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+#fortune-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 0;
+  transition: font-size 0.35s ease, font-family 0.35s ease, color 0.35s ease;
+}
+
+.swatch-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.swatch-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 2px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swatch-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.swatch-btn:active { transform: translateY(0); }
+.swatch-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.new-fortune-btn {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===================================================================
+   Stopwatch
+   =================================================================== */
+
+.stopwatch-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.time-display {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 4.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.time-unit {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.progress-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.stopwatch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.btn-start { background: var(--ink); color: #fff; }
+.btn-stop { background: var(--surface); color: var(--ink); border-color: var(--border); }
+.btn-reset { background: var(--accent-soft); color: var(--accent); }
+
+.status-note {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  min-height: 1.2em;
+}
+
+/* ===================================================================
+   To-do list
+   =================================================================== */
+
+.todo-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.todo-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.todo-add-btn {
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.92rem;
+}
+
+.todo-add-btn:hover { opacity: 0.9; }
+
+.todo-list-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 0.5rem;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.todo-item input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-item span {
+  flex: 1;
+  font-size: 0.97rem;
+  word-break: break-word;
+}
+
+.todo-item.completed span {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+
+.todo-delete {
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.todo-delete:hover { color: #B3432B; background: rgba(179,67,43,0.08); }
+
+.todo-empty {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.todo-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .time-display { font-size: 3.2rem; }
+  .fortune-wrap { flex-direction: column; }
+  .swatch-controls { align-self: stretch; grid-template-columns: repeat(4, 1fr); }
+}

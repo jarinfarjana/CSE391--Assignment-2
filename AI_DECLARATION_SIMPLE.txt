@@ -1,0 +1,65 @@
+============================================================
+           AI USAGE DECLARATION
+============================================================
+
+Name: Most. Jarin Farjana Jue
+Student ID: 22101043
+Assignment: CSE391 Assignment 2
+Date: 05/07/2026
+
+------------------------------------------------------------
+1. AI TOOLS USED (check all that apply)
+------------------------------------------------------------
+[ ] None
+[ ] ChatGPT
+[ ] GitHub Copilot
+[ ] Google Gemini
+[yes] Claude
+[ ] Cursor
+[ ] Other: ________________
+
+------------------------------------------------------------
+2. PURPOSE OF AI USE (check all that apply)
+------------------------------------------------------------
+[yes] Learning/understanding concepts
+[yes] Debugging my code
+[ ] Generating code snippets
+[ ] Writing text content
+[ ] Design/styling ideas
+[ ] Image generation
+[ ] Other: ________________
+
+------------------------------------------------------------
+3. DESCRIPTION OF AI USE
+------------------------------------------------------------
+Briefly describe what you used AI for and how:
+As I am new to this field, and learning lots of stuff which I dont know, learning how everything is working, we mostly learn when we implements, thats why it helping to learning practically what is happening.
+I have customized as per my preference. 
+
+
+
+
+------------------------------------------------------------
+4. AI-ASSISTED SECTIONS
+------------------------------------------------------------
+List specific files/sections where AI helped significantly:
+
+File: _______index.html_________ Section: ___editing______________
+File: ________fortune.js_________ Section: ______editing___________
+File: _________________ Section: _________________
+
+------------------------------------------------------------
+5. DECLARATION
+------------------------------------------------------------
+I declare that:
+- This disclosure is complete and accurate
+- I understand all code in my submission
+- I can explain and modify my work if asked
+- I take full responsibility for my submission
+
+Signature: __Jarin_____________________
+Date: _______06/07/2026____________________
+
+============================================================
+Save as: docs/AI_Declaration.txt
+============================================================

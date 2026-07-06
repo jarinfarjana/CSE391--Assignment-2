@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Generator · Jarin Farjana Jue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">JFJ</span>
+      <span class="brand-name">Jarin Farjana Jue</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="stopwatch.html">Stopwatch</a>
+      <a href="todo.html">To-Do</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Fortune Generator</h1>
+
+    <div class="fortune-wrap">
+      <div class="fortune-box" id="fortune-box">
+        <p id="fortune-text">Loading your fortune...</p>
+      </div>
+
+      <div class="swatch-controls" role="group" aria-label="Fortune box style controls">
+        <button class="swatch-btn" id="btn-black" style="background:#1A1A1A" aria-label="Black theme" title="Black"></button>
+        <button class="swatch-btn" id="btn-orange" style="background:#E8792C" aria-label="Orange theme" title="Orange"></button>
+        <button class="swatch-btn" id="btn-skyblue" style="background:#6EC1E4" aria-label="Sky blue theme" title="Sky Blue"></button>
+        <button class="swatch-btn" id="btn-white" style="background:#FFFFFF; border:1px solid #ccc" aria-label="White theme" title="White"></button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Made by <strong>Jarin Farjana Jue</strong> 
+      <p id="last-modified"></p>
+  </footer>
+
+  <script src="fortune.js"></script>
+</body>
+</html>

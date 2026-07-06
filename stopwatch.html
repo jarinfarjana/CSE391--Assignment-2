@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch · Jarin Farjana Jue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">JFJ</span>
+      <span class="brand-name">Jarin Farjana Jue</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="stopwatch.html" class="active">Stopwatch</a>
+      <a href="todo.html">To-Do</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Stopwatch</h1>
+    <p class="page-lede">Let's Count</p>
+
+    <div class="stopwatch-panel">
+      <div class="time-display" id="time-display">0</div>
+      <div class="time-unit">seconds elapsed</div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="stopwatch-controls">
+        <button class="btn btn-start" id="start-btn">Start</button>
+        <button class="btn btn-stop" id="stop-btn" disabled>Stop</button>
+        <button class="btn btn-reset" id="reset-btn">Reset</button>
+      </div>
+
+      <p class="status-note" id="status-note">Ready when you are.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Made by <strong>Jarin Farjana Jue</strong> 
+    <p id="last-modified"></p>
+  </footer>
+
+  <script src="stopwatch.js"></script>
+</body>
+</html>
